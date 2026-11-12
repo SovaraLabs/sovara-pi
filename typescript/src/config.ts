@@ -91,8 +91,8 @@ export async function loadConfig(
     session?.version === 1
       ? (savedOrigin(session.runner_origin) ?? savedOrigin(session.origin))
       : undefined;
-  // SOVARA_EXEC_SERVER_URL is the older name of SOVARA_SERVER_URL.
-  const envUrl = env.SOVARA_SERVER_URL ?? env.SOVARA_EXEC_SERVER_URL;
+  // SOVARA_EXEC_SERVER_URL is the older name of SOVARA_SERVER_URL; blank counts as unset.
+  const envUrl = [env.SOVARA_SERVER_URL, env.SOVARA_EXEC_SERVER_URL].find((url) => url?.trim());
   const execUrl = origin(envUrl ?? global.execUrl ?? signedIn ?? DEFAULT_EXEC_URL);
   const agentToken = env.SOVARA_AGENT_TOKEN?.trim() || undefined;
   let authentication: Config["authentication"] = "none";
