@@ -43,10 +43,6 @@ To uninstall:
 pi remove npm:@sovara/pi
 ```
 
-## Development
-
-See [Development](https://github.com/SovaraLabs/sovara-pi#development).
-
 ## License
 
 MIT.
