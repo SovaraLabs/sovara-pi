@@ -2,7 +2,7 @@
 
 Give Pi your team’s knowledge. Sovara automatically retrieves relevant lessons and records your sessions for review.
 
-Requires a Sovara exec-server supporting runner-api 6, and Node.js 24.22.1 or newer. Older servers are rejected before recording starts.
+Requires Node.js 24.22.1 or newer.
 
 ## Getting started
 
