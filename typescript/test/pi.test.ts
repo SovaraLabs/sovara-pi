@@ -24,11 +24,11 @@ export async function runPi(execUrl?: string) {
   const server = execUrl ? undefined : await fixtureServer();
   const cwd = await mkdtemp(join(tmpdir(), "pi-agent-test-"));
   const previous = {
-    SOVARA_EXEC_SERVER_URL: process.env.SOVARA_EXEC_SERVER_URL,
+    SOVARA_SERVER_URL: process.env.SOVARA_SERVER_URL,
     SOVARA_AGENT_TOKEN: process.env.SOVARA_AGENT_TOKEN,
     PI_CODING_AGENT_DIR: process.env.PI_CODING_AGENT_DIR,
   };
-  process.env.SOVARA_EXEC_SERVER_URL = execUrl ?? server!.config.execUrl;
+  process.env.SOVARA_SERVER_URL = execUrl ?? server!.config.execUrl;
   if (server) process.env.SOVARA_AGENT_TOKEN = "test-token";
   let session:
     | Awaited<ReturnType<typeof createAgentSession>>["session"]

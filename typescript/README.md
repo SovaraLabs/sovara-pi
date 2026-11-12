@@ -29,7 +29,7 @@ Your sessions are recorded automatically. Relevant lessons are added to Pi’s c
 - **`/reload`** — Reload after installation or changing your Sovara connection.
 - **`pi update`** — Update installed Pi packages from your terminal.
 
-Pi records to the server you signed in to with `sovara login`. To use another server, set `SOVARA_EXEC_SERVER_URL`, or `execUrl` in `~/.pi/agent/sovara.json`. Your project defaults to the folder where you start Pi. To choose another name, add `.pi/sovara.json`:
+Pi records to the server you signed in to with `sovara login`. To use another server, set `SOVARA_SERVER_URL`, or `execUrl` in `~/.pi/agent/sovara.json`. Your project defaults to the folder where you start Pi. To choose another name, add `.pi/sovara.json`:
 
 ```json
 { "projectName": "my-project" }

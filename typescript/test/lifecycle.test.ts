@@ -49,12 +49,12 @@ async function harness(parent?: (url: string) => string) {
   const cwd = await mkdtemp(join(tmpdir(), "pi-lifecycle-"));
   await mkdir(join(cwd, ".pi"));
   const previous = {
-    SOVARA_EXEC_SERVER_URL: process.env.SOVARA_EXEC_SERVER_URL,
+    SOVARA_SERVER_URL: process.env.SOVARA_SERVER_URL,
     SOVARA_AGENT_TOKEN: process.env.SOVARA_AGENT_TOKEN,
     PI_CODING_AGENT_DIR: process.env.PI_CODING_AGENT_DIR,
     SOVARA_PI_PARENT: process.env.SOVARA_PI_PARENT,
   };
-  process.env.SOVARA_EXEC_SERVER_URL = backend.config.execUrl;
+  process.env.SOVARA_SERVER_URL = backend.config.execUrl;
   process.env.SOVARA_AGENT_TOKEN = "agent-secret";
   process.env.PI_CODING_AGENT_DIR = join(cwd, "agent");
   if (parent) process.env.SOVARA_PI_PARENT = parent(backend.config.execUrl);
