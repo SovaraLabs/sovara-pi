@@ -91,9 +91,9 @@ export async function loadConfig(
     session?.version === 1
       ? (savedOrigin(session.runner_origin) ?? savedOrigin(session.origin))
       : undefined;
-  const execUrl = origin(
-    env.SOVARA_EXEC_SERVER_URL ?? global.execUrl ?? signedIn ?? DEFAULT_EXEC_URL,
-  );
+  // SOVARA_EXEC_SERVER_URL is the older name of SOVARA_SERVER_URL; blank counts as unset.
+  const envUrl = [env.SOVARA_SERVER_URL, env.SOVARA_EXEC_SERVER_URL].find((url) => url?.trim());
+  const execUrl = origin(envUrl ?? global.execUrl ?? signedIn ?? DEFAULT_EXEC_URL);
   const agentToken = env.SOVARA_AGENT_TOKEN?.trim() || undefined;
   let authentication: Config["authentication"] = "none";
   if (agentToken) {
@@ -108,8 +108,7 @@ export async function loadConfig(
         Date.parse(session.expires_at) > Date.now() ? "session" : "expired";
     }
   }
-  const override =
-    env.SOVARA_EXEC_SERVER_URL !== undefined || global.execUrl !== undefined;
+  const override = envUrl !== undefined || global.execUrl !== undefined;
   return {
     connectionKind: override ? "override" : signedIn ? "signed-in" : "default",
     authentication,

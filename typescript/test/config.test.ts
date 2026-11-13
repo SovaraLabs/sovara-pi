@@ -176,6 +176,18 @@ test("the server follows the env, then the Pi setting, then the sign-in, then th
       await server({ SOVARA_EXEC_SERVER_URL: "https://env.example" }),
       ["https://env.example", "override"],
     );
+    // SOVARA_SERVER_URL wins over its older name.
+    assert.deepEqual(
+      await server({
+        SOVARA_SERVER_URL: "https://server.example",
+        SOVARA_EXEC_SERVER_URL: "https://env.example",
+      }),
+      ["https://server.example", "override"],
+    );
+    assert.deepEqual(
+      await server({ SOVARA_SERVER_URL: " ", SOVARA_EXEC_SERVER_URL: "https://env.example" }),
+      ["https://env.example", "override"],
+    );
   } finally {
     await rm(home, { recursive: true, force: true });
   }
