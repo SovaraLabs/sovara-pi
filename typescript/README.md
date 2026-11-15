@@ -1,6 +1,11 @@
 # Sovara for Pi
 
-Give Pi your team’s knowledge. Sovara automatically retrieves relevant lessons and records your sessions for review.
+Sovara helps teams manage domain knowledge and put it to work in AI agents.
+Capture business rules, expert guidance, and lessons from experience in a shared
+knowledge base. Deliver relevant knowledge to agents as they work, review how
+they use it, and improve it together.
+
+Bring your team's domain knowledge into Pi and review agent sessions together with Sovara.
 
 Requires Node.js 24.22.1 or newer.
 
@@ -16,10 +21,13 @@ Requires Node.js 24.22.1 or newer.
 
 3. Send a message in Pi. In Sovara, open the project matching your folder name.
 4. Under **Lessons**, create a lesson:
-   - **Title:** Python testing
-   - **When to use:** When writing Python tests
-   - **Content:** Use pytest and keep tests beside the code they cover.
-5. Ask Pi to write a Python test. Open the recorded session in Sovara to see the lesson under **Lessons applied** on the model step.
+   - **Title:** Refund approval
+   - **When to use:** When handling customer refund requests
+   - **Content:** Refunds above CHF 500 require approval from the support team lead.
+
+   Apply the lesson to production and [enable knowledge injection](https://docs.sovara-labs.com/sovaradb/auto-injection).
+
+5. Ask Pi how to handle a CHF 750 refund request. Open the recorded session in Sovara to see the lesson under **Lessons applied** on the model step.
 
 ## Using Sovara
 

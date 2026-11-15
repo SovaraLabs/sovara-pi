@@ -1,7 +1,7 @@
 {
   "name": "@sovara/pi",
-  "version": "0.2.1",
-  "description": "Sovara tracing and lesson retrieval for Pi",
+  "version": "0.2.2",
+  "description": "Bring your team's domain knowledge into Pi and review agent sessions together with Sovara.",
   "type": "module",
   "license": "MIT",
   "repository": {
